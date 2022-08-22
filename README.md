@@ -10,6 +10,7 @@ Para ejecución por primera vez por favor descomentar las siguientes líneas:
 
 En el archivo application.properties ubicado en src/main/resources
 
+El puerto de ejecución está configurado para el server.port=8180 
 Ejecutar script PruebaMELI_DML en postgresql.
 
 ---FrontEnd Visual Studio Code 
