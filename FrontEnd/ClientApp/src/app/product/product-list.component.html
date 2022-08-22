@@ -1,0 +1,46 @@
+<div><button class="btn" (click)="open(mymodal,null)"><i class="fa fa-plus"></i></button></div>
+<div class="row mt-5">
+  <div class="col">
+    <table id="dtMascota" class="table table-striped" style="width: 100%;">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Descripción</th>
+          <th>Valor</th>
+          <th>Color</th>
+          <th>Categoria</th>              
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of datatable">
+          <td> {{ item.nombre }} </td>
+          <td>{{ item.descripcion }}</td>
+          <td>{{ item.valorUnit }}</td>
+          <td>{{ item.color.color }}</td>
+          <td>{{ item.categoria.categoria }}</td>                             
+          <td>
+            <button style="margin: 5px;" class="btn" (click)="open(mymodal,item)"><i class="fa fa-edit"></i></button>
+            <button style="margin: 5px;" class="btn" (click)="deleteP(item)"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h6 class="modal-title" id="modal-basic-title">Producto</h6>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <product-config *ngIf="productItem" [productDS]="productItem" (closeModal)="modal.close('Save click')"></product-config>
+  </div>
+</ng-template>
+<p-toast></p-toast>

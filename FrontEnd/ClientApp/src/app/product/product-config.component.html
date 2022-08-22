@@ -1,0 +1,69 @@
+<div class="container mt-12">
+   
+    <div class="col-lg-12">
+      <div >
+        <div >
+
+
+          <div class="input-group input-group-sm mb-3">
+            <input type="text" [(ngModel)]="nompreProducto" class="form-control" placeholder="Nombre">
+          </div>
+          <div class="input-group input-group-sm mb-3">
+            <input type="text" [(ngModel)]="descProducto" class="form-control" placeholder="Descripción">
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="input-group input-group-sm mb-3">
+                <input type="number"  [(ngModel)]="valor" class="form-control" placeholder="Valor">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="input-group input-group-sm mb-3" style="border: 1px solid #ced4da; border-radius: 0.25rem; font-size: .875rem;">
+                <p-dropdown [options]="colors"
+                            [(ngModel)]="selectedColor"
+                             name="selectedColor"
+                            optionLabel="color"
+                            optionValue="idColor"
+                            placeholder="{{selectedColor.color}}"></p-dropdown>
+              </div>         
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="input-group input-group-sm mb-3">
+                <div class="input-group input-group-sm sm-3" style="border: 1px solid #ced4da; border-radius: 0.25rem; font-size: .875rem;">
+                  <p-dropdown [options]="categorias" [(ngModel)]="selectedCategoria" optionLabel="categoria" optionValue="idCategoria" placeholder="{{selectedCategoria.categoria}}"></p-dropdown>
+                </div>
+              </div>
+            </div>            
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-8" style="text-align:center;">
+              <div class="avatar-upload">
+                <div class="avatar-edit">
+                  <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" #fileInput (change)="uploadFile($event)" />
+                </div>
+                <div class="avatar-preview">
+                  <div id="imagePreview" style="background-size: contain;" [style.backgroundImage]="'url('+ imageUrl +')'">
+                  </div>
+                </div>
+              </div>
+              <button type="button" style="width:120px;" class="btn btn-danger btn-primary btn-block" (click)="fileInput.click()">Imagen</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <button type="button" class="btn btn-success btn-lg" style="float:right;" (click)="save()">
+                <i class="fa fa-database"></i>&nbsp; Aceptar
+              </button>
+            </div>            
+          </div>
+
+          </div>
+        </div>
+    </div>    
+</div>
+<p-toast></p-toast>
